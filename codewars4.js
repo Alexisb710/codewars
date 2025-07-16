@@ -34,21 +34,27 @@ If a or b are nil (or null or None, depending on the language), the problem does
 // B / A = A ?
 // console.log(20736/144 === 144)
 
-function comp(a,b){
-  if(!a || !b){
-    return false
-  }
-  if(a.length !== b.length){
-    return false
-  }
-  let tempA = a.sort((x,y) => x-y)
-  let tempB = b.sort((x,y) => x-y)
-  console.log(tempA)
-  console.log(tempB)
-  return tempA.every((val, index) => {
-    if(val === 0 && tempB[index] === 0) return true
-    return val === (tempB[index] / val)
-  })
+// function comp(array1,array2){
+//   if(!array1 || !array2){
+//     return false
+//   }
+//   if(array1.length !== array2.length){
+//     return false
+//   }
+//   let tempA = array1.sort((x,y) => x-y)
+//   let tempB = array2.sort((x,y) => x-y)
+//   console.log(tempA)
+//   console.log(tempB)
+//   return tempA.every((val, index) => {
+//     if(val === 0 && tempB[index] === 0) return true
+//     return val === (tempB[index] / val)
+//   })
+// }
+function comp(array1, array2) {
+  if(array1 == null || array2 == null) return false;
+  array1.sort((a, b) => a - b) // Sort method sorts in place
+  array2.sort((a, b) => a - b)
+  return array1.map(v => v * v).every((v, i) => v == array2[i]);
 }
 
 // const a = [121, 144, 19, 161, 19, 144, 19, 11,0]  
