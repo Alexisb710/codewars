@@ -96,8 +96,53 @@ function queueTime(customers, tills) {
 }
 
 
-console.log(queueTime([5,3,4], 1)) //12
-console.log(queueTime([10,2,3,3], 2)) // 10
-console.log(queueTime([2,3,10], 2)) // 12
-console.log(queueTime([2,2,3,3,4,4], 2)) // 9
-console.log(queueTime([1,2,3,4,5], 100)) // 
+// console.log(queueTime([5,3,4], 1)) //12
+// console.log(queueTime([10,2,3,3], 2)) // 10
+// console.log(queueTime([2,3,10], 2)) // 12
+// console.log(queueTime([2,2,3,3,4,4], 2)) // 9
+// console.log(queueTime([1,2,3,4,5], 100)) // 
+
+/*
+[7 kyu]
+Description:
+Given an array of ones and zeroes, convert the equivalent binary value to an integer.
+
+Eg: [0, 0, 0, 1] is treated as 0001 which is the binary representation of 1.
+
+Examples:
+
+Testing: [0, 0, 0, 1] ==> 1
+Testing: [0, 0, 1, 0] ==> 2
+Testing: [0, 1, 0, 1] ==> 5
+Testing: [1, 0, 0, 1] ==> 9
+Testing: [0, 0, 1, 0] ==> 2
+Testing: [0, 1, 1, 0] ==> 6
+Testing: [1, 1, 1, 1] ==> 15
+Testing: [1, 0, 1, 1] ==> 11
+However, the arrays can have varying lengths, not just limited to 4.
+*/
+
+// function binToInt(arr){
+//   let val = 0
+//   let pow = 0
+//   for(let i = arr.length-1; i>=0; i--){
+//     val += (arr[i] * 2**pow)
+//     pow++
+//   }
+//   return val
+// }
+function binToInt(arr){
+  return [...arr].reverse().reduce((acc, current, i) => acc + current * 2**i)
+}
+
+function binToInt(arr){
+  return arr.reduce((acc, bit) => acc * 2 + bit, 0)
+}
+const binaryArrayToNumber = arr => {
+  return parseInt(arr.join(""), 2)
+}
+console.log(binToInt([0, 0, 0, 1])) // 1
+console.log(binToInt([1, 0, 1, 0])) // 10
+console.log(binToInt([0, 1, 1, 0])) // 6
+console.log(binToInt([1, 1, 1, 1])) // 15
+console.log(binToInt([1, 0, 1, 1])) // 11
