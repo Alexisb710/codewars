@@ -323,6 +323,36 @@ Return true if the array contains the value, false if not.
 function check(arr, x){
   return arr.includes(x)
 }
-console.log(check([66, 101], 66))
-console.log(check([101, 45, 75, 105, 99, 107], 107))
-console.log(check(['what', 'a', 'great', 'kata'], 'kat'))
+// console.log(check([66, 101], 66))
+// console.log(check([101, 45, 75, 105, 99, 107], 107))
+// console.log(check(['what', 'a', 'great', 'kata'], 'kat'))
+
+/*
+[7 kyu]
+Description:
+Instructions
+Write a function that takes a single non-empty string of only lowercase and 
+uppercase ascii letters (word) as its argument, and returns an ordered list 
+containing the indices of all capital (uppercase) letters in the string.
+
+Example (Input --> Output)
+"CodEWaRs" --> [0,3,4,6]
+*/
+// function findCapitals(string){
+//   return string.split('').map((letter, i) => {
+//     if (letter.charCodeAt(0) >= 65 && letter.charCodeAt(0) <= 90) {
+//       return i
+//     }
+//   }).filter(number => number >= 0)
+// }
+
+// REFACTORED
+function findCapitals(string){
+  return string.split('').reduce((arr, val, i) => {
+    if(val === val.toUpperCase()){
+      arr.push(i)
+    }
+    return arr
+  }, [])
+}
+console.log(findCapitals("CodEWaRs"))
