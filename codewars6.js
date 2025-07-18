@@ -271,6 +271,41 @@ function likes(people){
     return `${people[0]}, ${people[1]} and ${people.length - 2} others like this`
   }
 }
-console.log(likes(["Peter"]))
-console.log(likes(["Jacob", "Alex"]))
-console.log(likes(["Alex", "Jacob", "Mark", "Max"]))
+// console.log(likes(["Peter"]))
+// console.log(likes(["Jacob", "Alex"]))
+// console.log(likes(["Alex", "Jacob", "Mark", "Max"]))
+
+/*
+[7 kyu]
+Description:
+Given a string, capitalize the letters that occupy even indexes and odd indexes
+ separately, and return as shown below. Index 0 will be considered even.
+
+For example, capitalize("abcdef") = ['AbCdEf', 'aBcDeF']. See test cases for 
+more examples.
+The input will be a lowercase string with no spaces.
+Good luck!
+*/
+function capitalize(string){
+  let temp = ['','']
+  for(let i = 0; i < string.length; i++){
+    const char = string[i]
+    if(i % 2 === 0){
+      temp[0] += char.toUpperCase()
+      temp[1] += char
+    } else {
+      temp[0] += char
+      temp[1] += char.toUpperCase()
+    }
+  }
+
+  return temp
+}
+// REFACTORED
+// function capitalize(string){
+//   const str = string.split('')
+//   let even = str.map((letter, i) => i % 2 === 0 ? letter.toUpperCase() : letter).join('')
+//   let odd = str.map((letter, i) => i % 2 !== 0 ? letter.toUpperCase() : letter).join('')
+//   return [even, odd]
+// }
+console.log(capitalize("abcdef"))
