@@ -308,4 +308,21 @@ function capitalize(string){
 //   let odd = str.map((letter, i) => i % 2 !== 0 ? letter.toUpperCase() : letter).join('')
 //   return [even, odd]
 // }
-console.log(capitalize("abcdef"))
+// console.log(capitalize("abcdef"))
+
+/*
+[8 kyu]
+Description:
+You will be given an array a and a value x. All you need to do is check whether 
+the provided array contains the value.
+
+a can contain numbers or strings. x can be either.
+
+Return true if the array contains the value, false if not.
+*/
+function check(arr, x){
+  return arr.includes(x)
+}
+console.log(check([66, 101], 66))
+console.log(check([101, 45, 75, 105, 99, 107], 107))
+console.log(check(['what', 'a', 'great', 'kata'], 'kat'))
