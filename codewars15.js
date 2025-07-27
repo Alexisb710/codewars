@@ -44,8 +44,8 @@ Input validation
 If an empty value ( null, None, Nothing, nil etc. ) is given instead of an array, or 
 the given array is an empty list or a list with only 1 element, return 0.
 */
-const sumExc = arr => {
-  if(arr == '' || arr == null) return 0
+const sumArray = arr => {
+  if(arr == '' || arr == null || arr.length == 1) return 0
   return arr.sort((a,b) => a - b).filter((e, i, arr) => {
     if(i == 0){
       return false
@@ -58,5 +58,5 @@ const sumExc = arr => {
 }
 
 // let val = []
-console.log(sumExc([6, 2, 1, 8, 10]))
-console.log(sumExc([1, 1, 11, 2, 3]))
+console.log(sumArray([6, 2, 1, 8, 10]))
+console.log(sumArray([1, 1, 11, 2, 3]))
