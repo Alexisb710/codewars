@@ -47,4 +47,12 @@ const greet = language => {
   return language in languages ? languages[language] : languages['english']
 }
 
-console.log(greet('spanish'))
+// console.log(greet('spanish'))
+
+/*
+[8 kyu]
+Description:
+Write a function which converts the input string to uppercase.
+*/
+
+const makeUpperCase = str => str.toUpperCase()
