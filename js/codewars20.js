@@ -6,14 +6,22 @@ string like aba, then the result should be {'a': 2, 'b': 1}.
 
 What if the string is empty? Then the result should be empty object literal, {}.
 */
+// const count = (str) => {
+//   if (str == "") return {};
+//   let temp = str.split("");
+//   let obj = {};
+//   for (let letter of temp) {
+//     obj[letter] = (obj[letter] || 0) + 1;
+//   }
+//   return obj;
+// };
+
+// REFACTORED:
 const count = (str) => {
-  if (str == "") return {};
-  let temp = str.split("");
-  let obj = {};
-  for (let letter of temp) {
+  return str.split("").reduce((obj, letter) => {
     obj[letter] = (obj[letter] || 0) + 1;
-  }
-  return obj;
+    return obj;
+  }, {});
 };
 
 console.log(count("aba"));
